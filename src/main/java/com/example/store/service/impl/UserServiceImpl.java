@@ -47,6 +47,24 @@ public class UserServiceImpl implements UserService {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public UserDTO update(Long id, UserDTO dto) {
+        User user = userRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Product not found with id: " + id));
+        user.setName(dto.getName());
+        user.setCategory(dto.getCategory());
+        user.setPrice(dto.getPrice());
+        user.setQuantity(dto.getQuantity());
+        user.setDescription(dto.getDescription());
+        user = userRepository.save(user);
+        return mapToDTO(user);
+    }
+
+    @Override
+    public void delete(Long id) {
+        userRepository.deleteById(id);
+    }
+
     private UserDTO mapToDTO(User user) {
         return UserDTO.builder()
                 .id(user.getId())
