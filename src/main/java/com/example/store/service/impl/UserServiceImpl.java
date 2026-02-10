@@ -22,9 +22,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDTO create(UserDTO dto) {
         User user = User.builder()
-                .firstName(dto.getFirstName())
-                .lastName(dto.getLastName())
-                .age(dto.getAge())
+                .name(dto.getName())
+                .category(dto.getCategory())
+                .price(dto.getPrice())
+                .quantity(dto.getQuantity())
+                .description(dto.getDescription())
                 .build();
 
         user = userRepository.save(user);
@@ -48,9 +50,11 @@ public class UserServiceImpl implements UserService {
     private UserDTO mapToDTO(User user) {
         return UserDTO.builder()
                 .id(user.getId())
-                .firstName(user.getFirstName())
-                .lastName(user.getLastName())
-                .age(user.getAge())
+                .name(user.getName())
+                .category(user.getCategory())
+                .price(user.getPrice())
+                .quantity(user.getQuantity())
+                .description(user.getDescription())
                 .build();
     }
 }

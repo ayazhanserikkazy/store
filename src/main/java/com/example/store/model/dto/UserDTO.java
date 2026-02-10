@@ -10,7 +10,9 @@ import java.util.List;
 @Builder
 public class UserDTO{
     private Long id;
-    private String firstName;
-    private String lastName;
-    private int age;
+    private String name;
+    private String category;
+    private int price;
+    private int quantity;
+    private String description;
 }

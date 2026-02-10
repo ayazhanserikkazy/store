@@ -16,11 +16,16 @@ public class User {
     private Long id;
 
     @Column(nullable = false)
-    private String firstName;
+    private String name;
 
     @Column(nullable = false)
-    private String lastName;
+    private String category;
 
-    private int age;
+    private int price;
+
+    private int quantity;
+
+    @Column(nullable = false)
+    private String description;
 }
 
